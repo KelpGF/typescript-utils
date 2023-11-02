@@ -26,7 +26,7 @@ async function test() {
     calledWith: createUserUseCaseStub.calledWith(),
   })
 
-  // createUserUseCaseStub.outputThrowError();
+  // createUserUseCaseStub.outputMustBeenThrowError();
   // const result3 = await createUserUseCaseStub
   //   .execute(mockCreateUserUseCaseInput())
   //   .catch((error) => error);

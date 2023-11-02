@@ -2,9 +2,9 @@ interface SpyInterface<I, O> {
   call(input: I): O;
   calledWith(): I;
   timesCalled(): number;
-  outputIsNull(): void;
-  outputThrowError(error?: Error): void;
-  outputIsOutput(): void;
+  outputMustBeenNull(): void;
+  outputMustBeenThrowError(error?: Error): void;
+  outputMustBeenOutput(): void;
 }
 
 export abstract class SpyAbstract<I, O> implements SpyInterface<I, O> {
@@ -29,18 +29,18 @@ export abstract class SpyAbstract<I, O> implements SpyInterface<I, O> {
     return this.count;
   }
 
-  outputIsNull(): void {
+  outputMustBeenNull(): void {
     this.returnNull = true;
   }
 
-  outputThrowError(error?: Error): void {
+  outputMustBeenThrowError(error?: Error): void {
     this.returnNull = false;
     this.throwError = true;
 
     if (error) this.error = error;
   }
 
-  outputIsOutput(): void {
+  outputMustBeenOutput(): void {
     this.returnNull = false;
     this.throwError = false;
   }
