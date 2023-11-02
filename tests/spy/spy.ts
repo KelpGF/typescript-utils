@@ -15,7 +15,7 @@ export abstract class SpyAbstract<I, O> implements SpyInterface<I, O> {
   private returnNull: boolean = false;
   private throwError: boolean = false;
 
-  constructor(output: O, error?: Error) {
+  constructor({ output, error }: { output: O; error?: Error }) {
     this.output = output;
 
     if (error) this.error = error;

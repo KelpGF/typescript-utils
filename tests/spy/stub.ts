@@ -10,7 +10,7 @@ export class CreateUserUseCaseStub
   implements CreateUserUseCaseInterface
 {
   constructor(error?: Error) {
-    super(mockCreateUserUseCaseOutput(), error);
+    super({output: mockCreateUserUseCaseOutput(), error});
   }
 
   async execute(input: CreateUserUseCaseInterface.Input) {
