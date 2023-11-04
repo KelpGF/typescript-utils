@@ -1,10 +1,10 @@
 interface SpyInterface<I, O> {
+  calledWith: I;
+  timesCalled: number;
   call(input: I): O;
-  calledWith(): I;
-  timesCalled(): number;
   outputMustBeenNull(): void;
-  outputMustBeenThrowError(error?: Error): void;
   outputMustBeenOutput(): void;
+  outputMustBeenThrowError(error?: Error): void;
 }
 
 export abstract class SpyAbstract<I, O> implements SpyInterface<I, O> {
@@ -21,11 +21,11 @@ export abstract class SpyAbstract<I, O> implements SpyInterface<I, O> {
     if (error) this.error = error;
   }
 
-  calledWith(): I {
+  get calledWith(): I {
     return this.input;
   }
 
-  timesCalled(): number {
+  get timesCalled(): number {
     return this.count;
   }
 

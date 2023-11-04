@@ -23,7 +23,7 @@ async function test() {
   const result1 = await createUserController.handle(input);
   console.log({
     mustBeenCalledWith: input.data,
-    calledWith: createUserUseCaseStub.calledWith(),
+    calledWith: createUserUseCaseStub.calledWith,
   })
 
   // createUserUseCaseStub.outputMustBeenThrowError();
@@ -34,7 +34,7 @@ async function test() {
   // console.log({
   //   result1,
   //   result3,
-  //   count: createUserUseCaseStub.timesCalled(),
+  //   count: createUserUseCaseStub.timesCalled,
   // });
 }
 
